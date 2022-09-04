@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  height:100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  height: 100%;
+  margin:0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background: linear-gradient(150deg, rgba(42, 170, 199, 0.5),
+   rgba(42, 170, 199, 0));
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerContainer{
+  box-shadow: 10px 5px 50px -10px;
+  padding: 10px;
+  border-radius: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  margin: 15px;
   align-items: center;
+}
+.logoContainer{
+  border-radius: 10px;
+}
+.logo{
+  border-radius: 10px;
+  box-shadow: 10px 5px 50px -10px;
+
+}
+.logo:hover{
+  animation: rotation 1s infinite linear;
+}
+@keyframes rotation {
+  from{
+    rotate: 0deg;
+  }
+  to{
+    rotate: 359deg;  
+  }
+  
+}
+.titleContainer{
+  margin: auto;
+  position: relative;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
+  padding: 25px
+}
+.titletext{
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.search-container{
+  display:flex;
+  flex-direction: row;
+  width:fit-content;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 10px 5px 50px -10px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input{
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  padding: 5px;
+  width: 250px;
+  border:none;
+  font-family: 'Lato', sans-serif;
+
+
 }
+.search-input:focus{
+  oultine:none;
+}
+
+.btn{
+  position: absolute;
+  margin-left: 210px;
+  border-radius: 10px;
+  padding: 5px;
+  border:none;
+  cursor: pointer;
+  background: rgba(42, 170, 199, 0.5);
+  font-family: 'Lato', sans-serif;
+
+}
+
+.btn:hover{
+  background-color: rgba(42, 170, 199, 1);
+}
+
+.col{
+  border: 1px solid #000;
+}
+.name{
+  border: 1px solid #000;
+}
+.name-abbr-container{
+  display: flex;
+}
+

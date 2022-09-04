@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { react, useState } from "react";
+import axios from "axios";
+import "./App.css";
+import HeaderContainer from "./components/Header";
+import Search from "./components/Search";
+import Info from "./components/Info";
+
 
 function App() {
+  const [data, setData] = useState({});
+  const [coin, setCoin] = useState("bitcoin");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HeaderContainer />
+      <Search coin={coin} setCoin={setCoin} setData={setData} />
+      <Info />
     </div>
   );
 }
