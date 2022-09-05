@@ -1,24 +1,8 @@
-import react from "react";
 import "../App.css";
-import { useState } from "react";
-import axios from "axios";
 
-function Search({coin, setCoin, setData }) {
+function Search({getData, coin, setCoin,}) {
   const handleChange = (e) => {
     setCoin(e.target.value.toLowerCase());
-  };
-
-  const getData = () => {
-    axios({
-      method: "GET",
-      url: `https://api.coingecko.com/api/v3/coins/${coin}?localization=en`,
-    })
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
 
   return (
@@ -30,8 +14,9 @@ function Search({coin, setCoin, setData }) {
         onChange={handleChange}
       ></input>
       <button
-        className="btn"
-        onClick={(coin) => {
+        type="submit"
+        className="btn-search"
+        onClick={() => {
           getData(coin);
         }}
       >

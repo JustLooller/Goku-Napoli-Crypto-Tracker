@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 html{
   height:100%;
@@ -60,6 +61,7 @@ body{
   flex-direction: row;
   width:fit-content;
   margin: 0 auto;
+  margin-top: 30px;
   text-align: center;
   border-radius: 10px;
   box-shadow: 10px 5px 50px -10px;
@@ -78,10 +80,10 @@ body{
 
 }
 .search-input:focus{
-  oultine:none;
+  outline:none;
 }
 
-.btn{
+.btn-search{
   position: absolute;
   margin-left: 210px;
   border-radius: 10px;
@@ -93,17 +95,167 @@ body{
 
 }
 
-.btn:hover{
+.btn-search:hover{
   background-color: rgba(42, 170, 199, 1);
 }
 
-.col{
-  border: 1px solid #000;
+.info-container{
+  display:flex;
+  flex-direction: row;
+  margin: 10px;
+  margin-top: 50px;
+  border-radius: 10px;
 }
-.name{
-  border: 1px solid #000;
+.left-column{
+  width:50%;
+  padding: 10px;
 }
-.name-abbr-container{
+
+.top-row{
+  display: grid; 
+  grid-template-columns: min-content 1fr 1fr min-content; 
+  gap: 0px 5px; 
+  padding-left:10px;
+  padding-right:10px;
+  grid-template-areas: 
+    "Logo name Mcap social-icons";
+    height: 50%; 
+  align-items: center;
+  /* justify-items: center; */
+  border-radius: 10px;
+  box-shadow: 10px 5px 50px -10px;
+}
+
+.coin-icon-container{
+  grid-area:Logo;
+}
+
+
+.coin-icon:hover{
+  animation: moveUp 0.75s ease infinite;
+}
+@keyframes moveUp {
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-15px);
+  }
+  100%{
+    transform: translateY(1px);
+  }
+}
+
+
+.coin-name-container{
   display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding-left: 10px;
+  grid-area:name;
 }
+
+.coin-name{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+
+}
+.coin-abbr{
+  font-size: 14px;
+  font-weight: 100;
+  font-family: 'Kanit', sans-serif;
+  padding-left: 5px;
+
+}
+
+.coin-MCAP-details{
+  grid-area:Mcap;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding-left: 10px;
+}
+
+
+.coin-position{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+
+}
+.coin-MCAP{
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Kanit', sans-serif;
+  padding-left: 10px;
+  
+}
+
+.social-icon-container{
+  display: flex;
+  grid-area: social-icons;
+  flex-direction: column;
+  
+}
+
+.bottom-row{
+  margin-top:30px;
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  justify-items: center;
+  grid-template-areas: 
+      "bottom-col-price-container bottom-col-ath-container bottom-col-volume-container"; 
+  border-radius: 10px;
+  box-shadow: 10px 5px 50px -10px;
+}
+.bottom-col-price-container-green{
+  grid-area: bottom-col-price-container;
+  color: green;
+}
+
+.bottom-col-price-container-red{
+  grid-area: bottom-col-price-container;
+  color: red;
+}
+
+.coin-price, .coin-price-change-24h{
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+
+.bottom-col-ath-container{
+  grid-area: bottom-col-ath-container;
+}
+
+.coin-ath, .coin-ath-change{
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+.coin-volume-24h, .coin-volume-24h-change{
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Kanit', sans-serif;
+}
+
+.bottom-col-volume-container{
+  grid-area: bottom-col-volume-container;
+}
+
+
+
+
+
+
+
+
 
