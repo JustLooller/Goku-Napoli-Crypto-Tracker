@@ -14,16 +14,12 @@ body{
    rgba(42, 170, 199, 0));
 }
 .headerContainer{
+  display: flex;
   box-shadow: 10px 5px 50px -10px;
   padding: 10px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: row;
   margin: 15px;
   align-items: center;
-}
-.logoContainer{
-  border-radius: 10px;
 }
 .logo{
   border-radius: 10px;
@@ -45,10 +41,8 @@ body{
 .titleContainer{
   margin: auto;
   position: relative;
-  justify-content: center;
-  border-radius: 10px;
-  padding: 25px
 }
+
 .titletext{
   text-align: center;
   font-size: xx-large;
@@ -85,7 +79,7 @@ body{
 
 .btn-search{
   position: absolute;
-  margin-left: 210px;
+  margin-left: 211px;
   border-radius: 10px;
   padding: 5px;
   border:none;
@@ -142,7 +136,7 @@ body{
     transform: translateY(-15px);
   }
   100%{
-    transform: translateY(1px);
+    transform: translateY(-1px);
   }
 }
 

@@ -1,6 +1,7 @@
 import "../App.css";
 
-function Search({getData, coin, setCoin,}) {
+function Search({getData, coin, setCoin}) {
+
   const handleChange = (e) => {
     setCoin(e.target.value.toLowerCase());
   };

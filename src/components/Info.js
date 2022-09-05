@@ -1,7 +1,7 @@
 import "../App.css";
-import { react, useState } from "react";
 
-function Info({image, mcap, data }) {
+function Info({ data }) {
+
   function formatter(number) {
     let formatter = Intl.NumberFormat("us-US", {
       style: "currency",
@@ -42,7 +42,7 @@ function Info({image, mcap, data }) {
           <div className="coin-icon-container">
             <img
               className="coin-icon"
-              src={image}
+              src={data?.image?.large}
               alt="coin logo"
               width="40px"
               height="40px"
@@ -50,11 +50,11 @@ function Info({image, mcap, data }) {
           </div>
           <div className="coin-name-container">
             <p className="coin-name">{data.name}</p>
-            <p className="coin-abbr">{data.symbol}</p>
+            <p className="coin-abbr">{data?.symbol?.toUpperCase()}</p>
           </div>
           <div className="coin-MCAP-details">
             <p className="coin-position">#{data.market_cap_rank}</p>
-            <p className="coin-MCAP">{formatter(mcap)}</p>
+            <p className="coin-MCAP">{formatter(data?.market_data?.market_cap?.usd)}</p>
           </div>
           <div className="social-icon-container">
             <a
