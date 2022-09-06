@@ -1,6 +1,6 @@
 import "../App.css";
 
-function Search({getData, coin, setCoin}) {
+function Search({getChart, getData, coin, setCoin}) {
 
   const handleChange = (e) => {
     setCoin(e.target.value.toLowerCase());
@@ -19,6 +19,7 @@ function Search({getData, coin, setCoin}) {
         className="btn-search"
         onClick={() => {
           getData(coin);
+          getChart(coin);
         }}
       >
         Search

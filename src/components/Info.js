@@ -1,6 +1,7 @@
 import "../App.css";
 
 function Info({ data }) {
+
   function formatter(number) {
     let formatter = Intl.NumberFormat("us-US", {
       style: "currency",
@@ -14,7 +15,6 @@ function Info({ data }) {
     let formatter = Intl.NumberFormat("us-US", {
       notation: "compact",
     });
-    console.log("prova account");
     let formatted = formatter.format(number);
     return formatted;
   }
@@ -135,7 +135,6 @@ function Info({ data }) {
           </div>
         </div>
       </div>
-      <div className="widget"></div>
     </div>
   );
 }
