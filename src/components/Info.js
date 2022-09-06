@@ -15,7 +15,7 @@ function Info({ data }) {
     let formatter = Intl.NumberFormat("us-US", {
       notation: "compact"
     })
-
+    console.log("prova account");
     let formatted = formatter.format(number);
     return formatted;
   }
