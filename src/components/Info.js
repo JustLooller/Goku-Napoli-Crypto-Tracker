@@ -11,6 +11,15 @@ function Info({ data }) {
     return million;
   }
 
+  function formatter2(number){
+    let formatter = Intl.NumberFormat("us-US", {
+      notation: "compact"
+    })
+
+    let formatted = formatter.format(number);
+    return formatted;
+  }
+
   const color = (data) => {
     if (Object.keys(data).length === 0) {
       return <></>;
@@ -18,16 +27,23 @@ function Info({ data }) {
     if (data.market_data.price_change_percentage_24h_in_currency.usd > 0) {
       return (
         <div className="bottom-col-price-container-green">
-          <p className="coin-price">{data.market_data.current_price.usd}$</p>
+          <p className="coin-price">
+            {data.market_data.current_price.usd}$
+            <img src="https://lh3.googleusercontent.com/gYzxmRGTAkJaJaAVMHzplYUbdVsSp3ScS-CPHy2OVTD5urs6gNgpMrq2rDo6JZlm0-RfqQ=s85" width="20px" height="20px"></img>
+          </p>
           <p className="coin-price-change-24h">
             24h: {data.market_data.price_change_percentage_24h.toFixed(2)}%
           </p>
+          
         </div>
       );
     }
     return (
       <div className="bottom-col-price-container-red">
-        <p className="coin-price">{data.market_data.current_price.usd}$</p>
+        <p className="coin-price">
+          {data.market_data.current_price.usd}$
+          <img src="https://lh3.googleusercontent.com/ujL3woHUkUwpkXPNswblJXBZqnsf1FHsPGkCrtXNUOt3ruJXwPDEYf4bMmb4AT8C_CCpoA=s85" width="20px" height="20px"></img>
+        </p>
         <p className="coin-price-change-24h">
           24h: {data.market_data.price_change_percentage_24h.toFixed(2)}%
         </p>
@@ -58,7 +74,7 @@ function Info({ data }) {
           </div>
           <div className="social-icon-container">
             <a
-              href="https://www.reddit.com/r/Bitcoin/"
+              href={data?.links?.subreddit_url}
               target="_blank"
               rel="noreferrer"
             >
@@ -71,7 +87,7 @@ function Info({ data }) {
               ></img>
             </a>
             <a
-              href="https://github.com/bitcoin/bitcoin"
+              href={data?.links?.repos_url?.github[0]}
               target="_blank"
               rel="noreferrer"
             >
@@ -83,10 +99,10 @@ function Info({ data }) {
                 height="20px"
               ></img>
             </a>
-            <a href="http://www.bitcoin.org" target="_blank" rel="noreferrer">
+            <a href={data?.links?.homepage[0]} target="_blank" rel="noreferrer">
               <img
                 className="coin-social-icon"
-                src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579"
+                src={data?.image?.thumb}
                 alt=""
                 width="20px"
                 height="20px"
@@ -97,11 +113,11 @@ function Info({ data }) {
         <div className="bottom-row">
           {color(data)}
           <div className="bottom-col-ath-container">
-            <p className="coin-ath">ATH: XXXXX</p>
-            <p className="coin-ath-change">xx%</p>
+            <p className="coin-ath">ATH: {data?.market_data?.ath?.usd}$</p>
+            <p className="coin-ath-change">{data?.market_data?.ath_change_percentage?.usd.toFixed(2)}%</p>
           </div>
           <div className="bottom-col-volume-container">
-            <p className="coin-volume-24h">Volume : XXXX$</p>
+            <p className="coin-volume-24h">Volume : {formatter2(data?.market_data?.total_volume?.usd)}$</p>
           </div>
         </div>
       </div>
