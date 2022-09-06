@@ -1,7 +1,6 @@
 import "../App.css";
 
 function Info({ data }) {
-
   function formatter(number) {
     let formatter = Intl.NumberFormat("us-US", {
       style: "currency",
@@ -11,10 +10,10 @@ function Info({ data }) {
     return million;
   }
 
-  function formatter2(number){
+  function formatter2(number) {
     let formatter = Intl.NumberFormat("us-US", {
-      notation: "compact"
-    })
+      notation: "compact",
+    });
     console.log("prova account");
     let formatted = formatter.format(number);
     return formatted;
@@ -29,12 +28,16 @@ function Info({ data }) {
         <div className="bottom-col-price-container-green">
           <p className="coin-price">
             {data.market_data.current_price.usd}$
-            <img src="https://lh3.googleusercontent.com/gYzxmRGTAkJaJaAVMHzplYUbdVsSp3ScS-CPHy2OVTD5urs6gNgpMrq2rDo6JZlm0-RfqQ=s85" width="20px" height="20px"></img>
+            <img
+              src="https://emojigraph.org/media/whatsapp/chart-increasing_1f4c8.png"
+              width="20px"
+              height="20px"
+              alt="Stonks"
+            ></img>
           </p>
           <p className="coin-price-change-24h">
             24h: {data.market_data.price_change_percentage_24h.toFixed(2)}%
           </p>
-          
         </div>
       );
     }
@@ -42,7 +45,12 @@ function Info({ data }) {
       <div className="bottom-col-price-container-red">
         <p className="coin-price">
           {data.market_data.current_price.usd}$
-          <img src="https://lh3.googleusercontent.com/ujL3woHUkUwpkXPNswblJXBZqnsf1FHsPGkCrtXNUOt3ruJXwPDEYf4bMmb4AT8C_CCpoA=s85" width="20px" height="20px"></img>
+          <img
+            src="https://emojigraph.org/media/whatsapp/chart-decreasing_1f4c9.png"
+            width="20px"
+            height="20px"
+            alt="Not stonks"
+          ></img>
         </p>
         <p className="coin-price-change-24h">
           24h: {data.market_data.price_change_percentage_24h.toFixed(2)}%
@@ -70,7 +78,9 @@ function Info({ data }) {
           </div>
           <div className="coin-MCAP-details">
             <p className="coin-position">#{data.market_cap_rank}</p>
-            <p className="coin-MCAP">{formatter(data?.market_data?.market_cap?.usd)}</p>
+            <p className="coin-MCAP">
+              {formatter(data?.market_data?.market_cap?.usd)}
+            </p>
           </div>
           <div className="social-icon-container">
             <a
@@ -114,10 +124,14 @@ function Info({ data }) {
           {color(data)}
           <div className="bottom-col-ath-container">
             <p className="coin-ath">ATH: {data?.market_data?.ath?.usd}$</p>
-            <p className="coin-ath-change">{data?.market_data?.ath_change_percentage?.usd.toFixed(2)}%</p>
+            <p className="coin-ath-change">
+              {data?.market_data?.ath_change_percentage?.usd.toFixed(2)}%
+            </p>
           </div>
           <div className="bottom-col-volume-container">
-            <p className="coin-volume-24h">Volume : {formatter2(data?.market_data?.total_volume?.usd)}$</p>
+            <p className="coin-volume-24h">
+              Volume : {formatter2(data?.market_data?.total_volume?.usd)}$
+            </p>
           </div>
         </div>
       </div>
